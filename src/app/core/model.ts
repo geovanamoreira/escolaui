@@ -1,10 +1,9 @@
 export interface Curso{
   id: number;
-  nomecursos: string;
+  nomecurso: string;
 }
 
-//export interface Aluno{
- // id:number;
-  //nomealuno: string;
-  //curso = new Curso();
-//}
+export interface Aluno{
+  id:number;
+  nomealuno: string;
+}
