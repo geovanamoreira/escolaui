@@ -6,3 +6,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .example-spacer {
   flex: 1 1 auto;
 }
+
+
+.example-card {
+  max-width: 30%;
+  margin-top: 10px;
+  margin-left: 10px;
+}

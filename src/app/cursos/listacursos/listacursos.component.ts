@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Curso } from 'src/app/core/model';
+import { CursosService } from '../cursos.service';
 
 @Component({
   selector: 'app-listacursos',
@@ -10,20 +11,15 @@ import { Curso } from 'src/app/core/model';
 export class ListacursosComponent implements OnInit {
 
   //LISTA-TABELA DE CURSOS
-  cursos: Curso[] = [
-    {id: 1, nomecurso: 'Desenvolvimento de Sistemas'},
-    {id: 2, nomecurso: 'Química'},
-    {id: 3, nomecurso: 'Administração'},
-    {id: 4, nomecurso: 'Marketing'},
-    {id: 5, nomecurso: 'Contabilidade'},
-    {id: 6, nomecurso: 'Logística'}
-  ];
+  cursos: Curso[] = [];
 
-  displayedColumns = ['nomecurso'];
+  displayedColumns = ['id','nomecurso'];
 
-  constructor() {}
+  constructor(private cursosService: CursosService) {}
 
+  //TODA VEZ QUE INICIAR
   ngOnInit(): void {
+    this.cursos = this.cursosService.list();
   }
 
 }
