@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Curso } from 'src/app/core/model';
 import { CursosService } from '../cursos.service';
 
@@ -11,15 +12,16 @@ import { CursosService } from '../cursos.service';
 export class ListacursosComponent implements OnInit {
 
   //LISTA-TABELA DE CURSOS
-  cursos: Curso[] = [];
+  cursos: Observable<Curso[]>;
 
   displayedColumns = ['id','nomecurso'];
 
-  constructor(private cursosService: CursosService) {}
+  constructor(private cursosService: CursosService) {
+    this.cursos = this.cursosService.list();
+
+  }
 
   //TODA VEZ QUE INICIAR
-  ngOnInit(): void {
-    this.cursos = this.cursosService.list();
-  }
+  ngOnInit(): void {}
 
 }
